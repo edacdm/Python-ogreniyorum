@@ -1,0 +1,235 @@
+
+# Bu bir yorum satırıdır
+
+"""
+Bu bir
+çoklu yorum satırı
+örneğidir
+"""
+
+# Python'da int ve float değişkenler
+print("Python'da int ve float değişkenler")
+
+deger1 = 10
+deger2 = 20.0
+
+print(deger1)
+print(deger2)
+
+print("-"*50)
+
+# Python'da değişkenin tipini öğrenmek
+print("Python'da değişkenin tipini öğrenmek")
+
+print(type(deger1))
+print(type(deger2))
+print("-"*50)
+
+# Python'da Matematiksel işlemler
+deger1 = 20
+deger2 = 10
+
+print("Python'da Matematiksel işlemler")
+print(deger1+deger2) # Toplama
+print(deger1-deger2) # Çıkarma
+print(deger1/deger2) # Bölme
+print(deger1*deger2) # Çarpma
+print(deger1**3) # deger1'in (20) üssünü alma (3. dereceden)
+print("-"*50)
+
+# Python'da int değişkenlerin bölümünde int tipinde sonuç elde etmek için
+# 1. Yol
+print("Python'da int değişkenlerin bölümünde int tipinde sonuç elde etmek için 1. Yol")
+print(deger1//deger2)
+
+# 2. Yol
+print("Python'da int değişkenlerin bölümünde int tipinde sonuç elde etmek için 2. Yol")
+print(int(deger1/deger2))
+print("-"*50)
+
+# Python'da değişken tanımlamadan matematiksel işlemleri kullanımı
+print("Python'da değişken tanımlamadan matematiksel işlemleri kullanımı")
+
+print(20+10)
+print(20-10)
+print(20//10)
+print(20*10)
+print(20**3)
+
+#Python'da str veri tipi
+
+deger1 = "Bu bir str tipinde değişkendir"
+deger2 = 'Bu da str tipinde bir değişkendir'
+
+print("Python'da str veri tipi")
+
+print(deger1)
+print(deger2)
+print(type(deger1))
+print(type(deger2))
+print("-"*50)
+
+# Python'da kesme str veri tipinde kesme işareti kullanımı
+print("Python'da kesme str veri tipinde kesme işareti kullanımı")
+
+deger = "Türkiye'nin başkenti Ankara'dır"
+print(deger)
+print("-"*50)
+
+deger1 = "1. Satır \n 2. Satır"
+deger2 = "Bir tab kadar \t boşluk"
+
+print(deger1)
+print(deger2)
+print("-"*50)
+
+# str veri tipinde kullanılan fonksiyonlar 
+print("str veri tipinde kullanılan fonksiyonlar")
+
+deger = "Burdur Mehmet Akif Ersoy Üniversitesi"
+
+print(deger)
+print(deger.lower()) # tüm karakterleri küçük yazar
+print(deger.upper()) # tüm karakterleri büyük yazar
+print("-"*50)
+
+# Arka arkaya fonksiyon kullanımı
+print("str veri tipi için Arka arkaya fonksiyon kullanımı")
+
+print(deger)
+print(deger.upper())
+print(deger.upper().replace("I","İ"))
+print("-"*50)
+
+# str veri tipinde matematiksel işlemler-toplama işlemi
+print("str veri tipinde matematiksel işlemler-toplama işlemi")
+
+a = "Burdur "
+b = "Mehmet "
+c = "Akif "
+d = "Ersoy "
+e = "Üniversitesi"
+
+print(a+b+c+d+e)
+print("-"*50)
+
+
+# str veri tipinde matematiksel işlemler-çarpma işlemi
+print("str veri tipinde matematiksel işlemler-çarpma işlemi")
+
+deger = "a"
+print(deger*10) # değişken tanımlayıp 10 defa a yazdırmak
+print("a"*10) # değişken tanımlamadan direkt 10 defa a yazdırmak
+print("-"*50)
+
+# str veri tipinde f formatlama işlemi
+print("str veri tipinde f formatlama işlemi")
+
+print(f"{a}{b}{c}{d}{e} {18} yaşında")
+print("-"*50)
+
+
+# str veri tipinde slicing (dilimleme) işlemi
+print("str veri tipinde slicing (dilimleme) işlemi")
+
+deger = "Burdur Mehmet Akif Ersoy Üniversitesi"
+print(deger) # deger değişkenin içerisindeki ifade
+print(len(deger)) # deger değişkeninin uzunluğu (37 karakter uzunluğunda)
+print(deger[0]) # deger değişkeninin ilk elemanı
+print(deger[36]) # deger değişkeninin son elemanı
+print(deger[-1]) # deger değişkeninin son elemanı
+print("-"*50)
+
+print(deger) # deger değişkeninin tamamını yazar
+print(deger[:]) # başlangıç-bitiş değeri belirtilmezse tamamını yazar
+print(deger[:5]) # başlangıç değeri belirtilmezse 0 kabul edilir
+print(deger[3:10]) # başlangıç-bitiş belirtilirse ilgili yerleri yazar 
+print("-"*50)
+
+
+print(deger) # tamamını yazdırır
+print(deger[:]) # tamamını yazdırır
+print(deger[::]) # tamamını yazdırır
+print(deger[::1]) # tamamını yazdırır
+print(deger[::2]) # yalnızca çift indeks numarasına sahip değerleri yazdırır
+print("-"*50)
+
+# str veri tipinde slicing (dilimleme) işlemi-tersten yazma
+print("str veri tipinde slicing (dilimleme) işlemi-tersten yazma")
+
+print(deger[::2])
+print(deger[::-2])
+print("-"*50)
+
+# bool veri tipi
+print("bool veri tipi")
+
+print(bool(1))
+print(bool(0))
+print("-"*50)
+
+#Python'da Kontrol Yapıları
+print("Python'da Kontrol Yapıları")
+
+deger1 = 20
+deger2 = 10
+if deger1>deger2: #deger1 büyükse deger2'den aşağıdaki print yazılacak
+    print(f"{deger1} büyüktür {deger2}")
+
+elif deger2>deger1: # else if'in kısaltmasıdır ve 2. bir if koşuludur
+    print(f"{deger2} büyüktür {deger1}")
+
+else: # yukarıdaki şartların hiçbiri sağlanmazsa bu blok çalışacak
+    print(f"{deger2} eşittir {deger1}")
+
+print("-"*50)
+
+# Python'da Kontrol yapıları
+print("Python'da Kontrol yapıları")
+
+print(20>10) # 20 büyüktür 10 (True)
+print(20<10) # 20 küçüktür 10 (False)
+print(20==10) # 20 eşittir 10 (False)
+print(20!=10) # 20 eşit değildir 10 (True)
+
+print("-"*50)
+
+print(20==20)
+print(20 is 20)
+
+print(20 != 10)
+print(20 is not 10)
+
+print("-"*50)
+
+# Python’da Kontrol Yapıları-sözel ifadeler
+print("Python’da Kontrol Yapıları-sözel ifadeler")
+
+print(20>10 and 20>15) # True and True ==> Sonuç True
+print(20>10 and 20>30) # True and False ==> Sonuç False
+print("-"*50)
+print(20>10 or 20==10) # True or False ==> Sonuç True
+print(20<10 or 20==10) # False and False ==> Sonuç False
+
+print("-"*50)
+
+# Python'da not kullanımı
+print("Python'da not kullanımı")
+
+print(20>10) # 20, 10'dan büyüktür, doğru yani True
+print(not 20>10) # cevap True ama not kullandığımız için False oldu
+print("-"*50)
+print(20==20) # 20 eşittir 20, cevap doğru yani True
+print(not 20==20) # cevap True ama not kullandık ve False oldu
+print("*"*50)
+
+# Python'da in anahtar kelimesi kullanımı
+print("Python'da in anahtar kelimesi kullanımı")
+
+deger1 = "Makü ztyo"
+print("Makü" in deger1)
+print("M" in deger1)
+print("ty" in deger1)
+print("Bakü" in deger1)
+
+
