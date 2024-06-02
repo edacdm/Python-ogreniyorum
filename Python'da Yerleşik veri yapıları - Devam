@@ -1,0 +1,302 @@
+
+# Python'da Yerleşik veri yapıları - Devam
+
+# 1) Liste (Tekrar)
+# köşeli parantezler ile tanımlıyorduk
+
+my_list = []
+#print(type(my_list))
+
+# Başlangıçta da liste içerisine veri ekleyip öyle tanımlayabiliyorduk
+
+my_list = ["Makü","Ybs","3. sınıf",2, True, 18.96]
+print(my_list)
+print(type(my_list))
+
+my_lis2 = my_list
+
+print(my_list)
+print(my_lis2)
+print("-"*50)
+
+my_list.append("son değer")
+print(my_list)
+print(my_lis2)
+
+
+my_list3 = [x for x in range(1,11)]
+my_list.extend(my_list3)
+my_list.extend(["yeni1","yeni2","yeni3"])
+print("-"*50)
+print(my_list)
+print("*"*50)
+
+# 2) Tuple
+# tanımlama
+
+my_tuple = ()
+print(type(my_tuple))
+
+# Tuple tanımlama - 2
+
+my_tuple = (52,85,96,103,103,85)
+# my_tuple değişkeninde 85 elemanından kaç tane olduğunu yazdırır (2 tane)
+print(my_tuple.count(85))
+
+#my_tuple değişkeninde 96 elemanının index numarasını verir (2. index)
+
+print(my_tuple.index(96))
+
+print(my_tuple[2])
+
+print("-"*50)
+
+#my_tuple[2] = 100
+
+#print(my_tuple)
+
+# 3) Set (Kümeler)
+# Matematikteki kümelerin karşılığıdır, aynısıdır
+# Tanımlama
+kume1 = {15,15,83,83,83,105,0,2}
+kume2 = {83,2,103,9879,56,65}
+
+print("-"*50)
+print(type(kume1))
+print(type(kume2))
+
+# Kümelerde indeksleme işlemi yapılamaz
+#print(kume1[0])
+
+print("-"*50)
+print(f"kume1 = {kume1}")
+print(f"kume2 = {kume2}")
+
+
+# Kümelerde birleşim
+print(f"Kümelerde Birleşim İşlemi = {kume1.union(kume2)}")
+
+# Kümelerde kesişim
+print(f"Kümelerde Kesişim İşlemi = {kume1.intersection(kume2)}")
+
+# kume1 fark kume2 (kume1'de olup da kume2'de olmayan elemanlar)
+print(f"kume1 fark kume2 İşlemi = {kume1.difference(kume2)}")
+
+# kume2 fark kume1 (kume2'de olup da kume1'de olmayan elemanlar)
+print(f"kume2 fark kume1 İşlemi = {kume2.difference(kume1)}")
+
+
+# Birleşim ve kesişim işleminde kümelerin sıralamasının hiçbir önemi yoktur
+# Çünkü ortak olan değerler ve tüm değerler bellidir.
+# Fark (difference) işleminde ise kümelerin hangisinin seçildiğinin
+# önemi vardır!!!
+
+# for döngüsü kullanımı - 1 (sayılar ile)
+
+# Sadece bitiş değeri ile for döngüsü kullanımı => range(bitiş değeri)
+
+print("-"*50)
+
+for i in range(10):
+    print(i)
+
+# Sadece başlangıç ve bitiş değeri ile kullanımı range(başlangıç,bitiş)
+print("-"*50)
+
+for i in range(1,10):
+    print(i)
+
+print("-"*50)
+
+# range(başlangıç,bitiş,artış miktarı)
+
+for i in range(2,15,3):
+    print(i)
+
+# for döngüsü veri yapıları ile kullanımı (veriler arasında gezinme için)
+
+my_list = ["Makü","Ybs","3. sınıf","Şube-A",15,85.62,False,True]
+
+# for döngüsü veriler içerisinde gezinme Kullanım - 1 (Yaygın kullanım)
+
+print("-"*50)
+
+for deger in my_list:
+    print(deger)
+
+# for döngüsü veriler içerisinde gezinim Kullanım - 2
+
+print("-"*50)
+
+print(f"my_list değişkeninin uzunluğu = {len(my_list)}")
+
+# Sadece çift indeksli verileri getiren kod
+for i in range(0,len(my_list),2):
+    print(f"my_list değişkeninin {i}. değeri =  {my_list[i]}")
+
+# 4) Dictionary (Son veri yapısı)
+# Diğer tüm veri yapılarından farkı "key":"value" şeklinde tanımlanmasıdır
+# key değeri benzersiz olmalıdır yani aynı key değerinden yalnızca 1 tane
+# olmalıdır. value değeri ise aynı olabilir.
+
+# Dictionary tanımlama
+
+# set bu şekilde tanımlanır
+my_set = {15}
+
+# Dictionary ise bu şekilde
+my_dict = {"isim":"Furkan"}
+
+print("-"*50)
+print(f"my_set değişkeninin tipi = {type(my_set)}")
+print(f"my_dict değişkeninin tipi = {type(my_dict)}")
+
+print("-"*50)
+print(f"my_set = {my_set}")
+print(f"my_dict = {my_dict}")
+
+# Dictionary tanımlama - 2
+print("-"*50)
+my_dict2 = dict({"isim":"Furkan"})
+print(f"my_dict2 değişkeninin tipi = {type(my_dict2)}")
+print(f"my_dict2 = {my_dict2}")
+
+# Dictionary tanımlama
+
+my_dict = {"Kullanıcılar":[
+    {"isim":"Furkan","soyisim":"ATLAN","bolum":"YBS"},
+    {"isim":"Veysel","soyisim":"ASLAN","bolum":"Muhasebe"},
+    {"isim":"Ahmet","soyisim":"YILDIRIM","bolum":"Bilişim Sistemleri"}
+    ]}
+print("-"*50)
+print(my_dict)
+
+# Eleman ekleme - 1. yol (güncelleme metodu ile)
+
+print("-"*50)
+
+#my_dict.update({"isim":"Ali","soyisim":"YILMAZ","bolum":"BTS"})
+#print(my_dict)
+
+# Listenin içerisine eklemek istersem (append()) metodunu kullanırım
+
+print("-"*50)
+my_dict["Kullanıcılar"].append({"isim":"Yusuf","soyisim":"KAYA","bolum":"Dış ticaret"})
+print(my_dict)
+
+# update() fonksiyonu veriyi en sona ekler
+# append() fonksiyonu ise veriyi, mevcut veri yapısının (iç içe kullanımda)
+# içine ekler
+# Update fonksiyonu ile veri ekleme (basit kullanım)
+my_dict2 = {"isim":"Furkan","soyisim":"ATLAN"}
+
+print(my_dict2)
+print("-"*50)
+my_dict2.update({"age":25})
+print(my_dict2)
+
+#Dictionary veri yapısında anahtarlara erişim
+
+print("-"*50)
+# anahtarlara dict.keys() metodu ile erişiriz
+print(f"my_dict2'nin anahtarları = {my_dict2.keys()}")
+
+print(f"my_dict'in anahtarları = {my_dict.keys()}")
+
+# Ana keys (root keys) elemanlarına erişim için
+print("-"*50)
+for anahtar in my_dict["Kullanıcılar"]:
+    print(anahtar.keys())
+
+print("-"*50)
+# elemanlara dict.values() metodu ile erişim sağlanır
+# Dictionary veri yapısında elemanlara erişim
+for degerler in my_dict["Kullanıcılar"]:
+    print(degerler.values())
+
+# Dictionary veri yapısında elemanlara erişim (basit kullanım)
+
+print("-"*50)
+print(my_dict2.values())
+
+# anahtar ve values değerleri birlikte çağırma, görüntüleme
+# anahtar ve values değerleri dict.items() metodu ile görüntülenir
+print("-"*50)
+for deger in my_dict["Kullanıcılar"]:
+    print(deger.items())
+
+# Tek bir tane anahtar değerini çağırma
+
+print("-"*50)
+my_dict3 = {"isim":"Hakan","soyisim":"YILDIRIM","maas":50000}
+print(my_dict3["isim"])
+
+# Anahtar değeri çağırırken hata almamak için get() metodu kullanılır
+print("Anahtar değeri çağırırken hata almamak için get() metodu kullanılır")
+print(my_dict3.get("isimm"))
+
+print(my_dict3)
+
+# Karışık Kullanım (Zor kullanım)
+
+print("-"*50)
+
+print(my_dict["Kullanıcılar"][0])
+print(my_dict["Kullanıcılar"][0]["isim"])
+print(my_dict["Kullanıcılar"][0]["isim"][0])
+
+print("-"*50)
+# Set (Kümeler Tekrar)
+
+# Matematikteki kümeler ile tamamen aynıdır.
+# Unordered yani sırasız bir yapısı vardır.
+# Bu nedenle indekslenemezler!!!
+# Aynı veriden (küme elemanından) yalnızca bir tane bulunabilir
+# Birden fazla defa yazılsa bile yalnızca bir defa gösterilir.
+# Birleşim (farklı kümelerin tüm elemanlarının birlikte yazılması)
+# Kesişim (Farklı kümelerin aynı olan elemanlarının birlikte yazılması)
+# Fark (Bir kümede olup da diğer kümede olmayan elemanların hesaplanması)
+# gibi işlemler yapmamıza olanak sağlar.
+# Özellikle değer itibari ile unique(benzersiz) verilerin yani values'lerin
+# kullanılması gereken durumlarda tercih edilen bir veri yapısıdır
+
+print("-"*50)
+deger = [15,20,25,25,25,60]
+print(type(deger))
+print(deger)
+
+#print(set(deger))
+deger2 = []
+
+for i in deger:
+    if i not in deger2:
+        deger2.append(i)
+print(f"set kullanılan değer = {set(deger)}")
+print(f"kod yazılmış benzersiz değerler = {deger2}")
+
+# Python'da dönüşüm (convert ve cast) işlemi şu şekilde yapılır
+# dönüştürülecek veri tipi,yapısı(dönüştürülecek veri)
+print(type(10))
+print(type(float(10)))
+
+print("-"*50)
+
+kume1 = {1,5,5,9,15,20,20}
+kume2 = {10,12,1,9,50,50,12}
+
+print(f"kume1 = {kume1}")
+print(f"kume2 = {kume2}")
+
+print("Python'da set veri yapısı ile yapılan işlemler")
+# Matematiksel gösterimi kume1 u kume2
+print(f"Kümelerde birleşim işlemi = {kume1.union(kume2)}")
+print(f"Kümelerde kesişim işlemi = {kume1.intersection(kume2)}")
+print(f"Kümelerde fark işlemi")
+print(f"küme 1 fark küme 2 = {kume1.difference(kume2)}")
+print(f"küme 2 fark küme 1 = {kume2.difference(kume1)}")
+
+# Kümelerde indeksleme işlemi yapılamaz
+#print(kume1[0])
+
+
+print(f"değer = {1e-4}")
