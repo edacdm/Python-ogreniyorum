@@ -1,0 +1,169 @@
+
+# Fonksiyonlar
+
+# Python'da fonksiyonlar def anahtar kelimesi ile tanımlanır
+# def fonksiyonAdi() şeklinde tanımlanır => parametresiz fonksiyonlar
+# pass anahtar kelimesi herhangi bir doldurulması gereken alan içerisinde kullanılabilir
+# Anlamı => bu alanı şimdilik boş geç demektir
+
+# Python'da fonksiyonlarda print ve return farkı:
+def myFunc1():
+    print("Fonksiyon 1")
+
+def myFunc2():
+    return f"Fonksiyon 2"
+
+# Fonksiyonların çağırılması (çalıştırılması) 2 şekilde olur:
+# 1. Yol direkt fonksiyon adı ve parantez => fonksiyonAdi()
+
+myFunc1()
+print(myFunc2())
+
+# Fonksiyon çağırma 2. yol
+# değişkene atayarak çağırma
+print("-"*50)
+fonk1 = myFunc1()
+fonk2 = myFunc2()
+
+fonk1
+print(fonk2)
+
+# print ve return farkı:
+# print() içerisine yazılan herhangi bir ifadeyi sadece ekrana yazdırır.
+# bir fonksiyonda print() kullanıldığında (return kullanılmadığında)
+# o fonksiyonun görevi orada biter ve başka hiçbir şey yapılmaz
+# return ise herhangi bir şeyi geri döndürür ve geri döndürdüğü bu değeri
+# fonksiyonu çağırdıktan sonra bile kullanabiliriz
+
+# print ve return farkı:
+print("-"*50)
+print(type(myFunc1()))
+print(type(myFunc2()))
+
+# myFunc1'in geri dönüş tipi olmadığı için type() fonksiyonu ile tipini
+# kontrol ettiğimizde geri dönüş tipi olaran NoneType yazdı
+# myFunc2'nin geri dönüş tipini (return f"") f string olarak belirlediğimiz
+# için type() fonksiyonu ile tipine baktığımızda str yazdı
+
+def myFunc1():
+    print("Fonksiyon 1")
+
+def myFunc2():
+    return [10.86,"Furkan",56,True]
+
+print("-"*50)
+print(type(myFunc1()))
+print(type(myFunc2()))
+
+# return edilen fonksiyonlar üzerinden devam
+print("-"*50)
+def myFunc2():
+    return [10.86,"Furkan",56,True]
+
+#fonksiyonu direkt çağırma
+print(myFunc2())
+
+# fonksiyonu değişkene atayıp çağırma
+fonk2 = myFunc2()
+print(fonk2)
+print(fonk2[0])
+
+deger = fonk2[0]
+deger = "yeni deger"
+
+print("-"*50)
+print(deger)
+
+# Parametreli fonksiyonlar (positional arguements)
+print("-"*50)
+def sayiTopla(a,b):
+    return a+b
+
+print(sayiTopla(8,5))
+
+# Toplama işleminizin sonucu = 13
+print("-"*50)
+print("Toplama işleminizin sonucu = 8+5")
+print(f"Toplama işleminizin sonucu = {11+2}")
+
+# *args,**kwargs
+# args = argümanlar demektir ve tuple tipindedir.
+# kwargs = keywords argümanlar demektir ve dictionary tipindedir.
+# Birden fazla değer tanımlamak istersek *args anahtar kelimesini kullanırız
+# Birden fazla key:value şeklinde ifade kullanacak olursak eğer
+# **kwargs anahtar kelimesini kullanırız
+
+print("-"*50)
+def genelToplam(*args):
+    toplam = 0
+    for i in args:
+        toplam = toplam + i
+    return toplam
+
+print(genelToplam(1,2,3,4,5,6,7,8,9,10))
+
+
+# fonksiyonlar'da matematiksel işlemler (for döngüsü ile)
+
+# 1'den 11'e kadar çift sayıları yazdıran fonksiyon:
+print("-"*50)
+# Normal yol ile 1'den 11'e kadar çift sayıları yazdıran kod
+for i in range(1,11):
+    if i%2==0:
+        print(i)
+
+# 1'den 11'e kadar olan çift sayıları yazdıran FONKSİYON:
+
+def ciftSayi():
+    sayilar = []
+
+    for i in range(1,11):
+        if i%2==0:
+            sayilar.append(i)
+    
+    return sayilar
+print("-"*50)
+print(ciftSayi())
+print(f"1'den 10'a kadar olan çift sayıları: {ciftSayi()}")
+
+#ciftSayi() fonksiyonundan return edilen listedeki 4 değerini yazdıran kod
+
+# önce fonksiyonu bir değişkene atıyoruz
+
+deger = ciftSayi()
+
+# sonra deger değişkeni artık return edilen listeyi barındırıyor.
+# 4 değeri bu listenin 2. sırasında yani 1. indeksinde
+# Python'da indeksleme işlemi 0'dan başladığı için 1. indekste
+
+# slicing işlemi ile bu listenin 1. indeksindeki değeri yazdırıyoruz
+
+print(deger[1])
+
+# kwargs kullanımı
+
+def kisiBilgi(**kwargs):
+    for key,value in kwargs.items():
+        print(f"anahtar: {key}, değer:{value}")
+
+kisiBilgi(isim="Furkan",soyisim="ATLAN",yas=30,bolum="YBS")
+
+# Parametreli fonksiyonlarda default (varsayılan) parametre tanımlama
+print("*"*50)
+def kisiGetir(ad="Furkan",soyad="ATLAN"):
+    return f"{ad} {soyad}"
+
+print(kisiGetir())
+print(kisiGetir("Hakan","YILMAZ")) # üstüne yazma overwrite
+
+# fonksiyonlarda parametrelerin değerleri önceden tanımlanabilir
+# buna default parameters-values denir
+# Ancak, fonksiyonda kendimiz bir değer verirsek bizim verdiğimiz değer
+# varsayılan değeri ezer ve onun yerine yazılır.
+print("-"*50)
+def kisiGetir(ad,soyad,yas,bolum,okul):
+    return f"ad = {ad}, soyad = {soyad}, yaş = {yas}, bölüm = {bolum}, okul = {okul}"
+
+print(kisiGetir("Furkan","ATLAN",30,"YBS","ZTYO"))
+print(kisiGetir("Hakan","YILMAZ",35,"Muhasebe","ZTYO"))
+print(kisiGetir(yas=35,bolum="Muhasebe",okul="ZTYO",ad="Hakan",soyad="YILMAZ"))
