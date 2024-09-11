@@ -1,0 +1,45 @@
+# Öğrenci sayısı
+ogrenci_sayisi = 30
+
+# Şube 1'in ders notları
+s1_ders1_notlar = [75, 80, 85, 90]
+s1_ders2_notlar = [70, 82, 88, 95]
+s1_ders3_notlar = [65, 78, 80, 92]
+s1_ders4_notlar = [72, 85, 90, 88]
+
+# Şube 2'nin ders notları
+s2_ders1_notlar = [78, 83, 88, 91]
+s2_ders2_notlar = [68, 79, 84, 89]
+s2_ders3_notlar = [71, 80, 86, 90]
+s2_ders4_notlar = [75, 82, 87, 92]
+
+# Ortalama hesaplama
+s1_ders1_ortalama = sum(s1_ders1_notlar) / ogrenci_sayisi
+s1_ders2_ortalama = sum(s1_ders2_notlar) / ogrenci_sayisi
+s1_ders3_ortalama = sum(s1_ders3_notlar) / ogrenci_sayisi
+s1_ders4_ortalama = sum(s1_ders4_notlar) / ogrenci_sayisi
+
+s2_ders1_ortalama = sum(s2_ders1_notlar) / ogrenci_sayisi
+s2_ders2_ortalama = sum(s2_ders2_notlar) / ogrenci_sayisi
+s2_ders3_ortalama = sum(s2_ders3_notlar) / ogrenci_sayisi
+s2_ders4_ortalama = sum(s2_ders4_notlar) / ogrenci_sayisi
+
+# Bar grafikleri için verileri oluşturma
+ders_ortalama_s1 = [s1_ders1_ortalama, s1_ders2_ortalama, s1_ders3_ortalama, s1_ders4_ortalama]
+ders_ortalama_s2 = [s2_ders1_ortalama, s2_ders2_ortalama, s2_ders3_ortalama, s2_ders4_ortalama]
+dersler = ['Ders 1', 'Ders 2', 'Ders 3', 'Ders 4']
+
+x = np.arange(len(dersler))  # x ekseninde derslerin konumunu belirleme
+bar_genisligi = 0.35
+
+# Bar grafiklerini çizme
+plt.bar(x, ders_ortalama_s1, width=bar_genisligi, label='Şube 1')
+plt.bar(x + bar_genisligi, ders_ortalama_s2, width=bar_genisligi, label='Şube 2')
+plt.xlabel('Dersler')
+plt.ylabel('Ortalama Notlar')
+plt.title('Her Bir Ders İçin Şube 1 ve Şube 2 Ortalama Notları')
+plt.xticks(x + bar_genisligi/2, dersler)
+plt.legend()
+
+# Grafiği gösterme
+plt.show()
