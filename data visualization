@@ -1,0 +1,168 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+%matplotlib notebook
+#plt.plot() fonksiyonunun içerisine sadece değer seti verirseniz
+# bunu y ekseninin (dikey eksen) değeri olarak algılar.
+# x ekseninin (yatay eksen) değerlerini ise kendisi
+# otomatik doldurur
+dizi = np.random.randint(50,200,(10))
+
+plt.plot(dizi)
+plt.show()
+dizi = np.random.randint(50,200,(3))
+
+plt.plot(dizi)
+plt.show()
+# İki değer üst üste çizdirme
+
+deger_a = np.random.randint(0,100,(15))
+deger_b = np.random.randint(0,100,(15))
+
+plt.plot(deger_a,label="1. Değer")
+plt.plot(deger_b, label="2. Değer")
+plt.legend()
+plt.show()
+# 0-100 arasında rastgele 30 değerden oluşan 4 matris (array) üretin
+# ZTYO'daki her bir bölümü (4 bölüm) temsil eden bu matrisleri
+# plot ile çizdirin ve hangi çizimin hangi bölüme ait olduğunu belirtin
+deger_a = np.random.randint(0,100,(15))
+deger_b = np.random.randint(0,100,(15))
+deger_c = np.random.randint(0,100,(15))
+deger_d = np.random.randint(0,100,(15))
+
+plt.plot(deger_a,label="YBS")
+plt.plot(deger_b, label="BST")
+plt.plot(deger_c, label="Muhasebe")
+plt.plot(deger_d, label="Gümrük İşletme")
+plt.legend()
+plt.show()
+#plot içi ayarlar
+
+deneme_1 = np.random.randint(0,100,(8))
+deneme_2 = np.random.randint(0,100,(8))
+
+x_eksen = np.arange(deneme_1.shape[0])
+
+plt.plot(x_eksen,deneme_1,label="Deneme-1")
+plt.plot(x_eksen,deneme_2,label="Deneme-2")
+plt.legend()
+plt.show()
+#plot içi ayarlar
+
+deneme_1 = np.random.randint(0,100,(12))
+deneme_2 = np.random.randint(0,100,(12))
+
+x_eksen = np.arange(deneme_1.shape[0])
+
+
+new_x_ticks = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz",
+              "Ağustos","Eylül","Ekim","Kasım","Aralık"]
+
+
+plt.plot(x_eksen,deneme_1,label="Deneme-1")
+plt.plot(x_eksen,deneme_2,label="Deneme-2")
+#xticks bilgisinin 0'dan 11'e kadar olan sayılar yerine
+#new_x_ticks listesindeki aylar ile değiştirdik
+plt.xticks(x_eksen,new_x_ticks,rotation=45, ha='right')
+plt.legend()
+plt.show()
+#plot içi ayarlar
+
+deneme_1 = np.random.randint(0,100,(12))
+deneme_2 = np.random.randint(0,100,(12))
+
+x_eksen = np.arange(deneme_1.shape[0])
+
+
+new_x_ticks = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz",
+              "Ağustos","Eylül","Ekim","Kasım","Aralık"]
+
+
+plt.plot(x_eksen,deneme_1,linestyle="-.",color="blue",linewidth=2,label="Deneme-1")
+plt.plot(x_eksen,deneme_2,linestyle='--',color='red',linewidth=2,label="Deneme-2")
+#xticks bilgisinin 0'dan 11'e kadar olan sayılar yerine
+#new_x_ticks listesindeki aylar ile değiştirdik
+plt.xticks(x_eksen,new_x_ticks,rotation=45, ha='right')
+plt.legend()
+plt.show()
+#plot içi ayarlar
+
+deneme_1 = np.random.randint(0,100,(12))
+deneme_2 = np.random.randint(0,100,(12))
+
+x_eksen = np.arange(deneme_1.shape[0])
+
+
+new_x_ticks = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz",
+              "Ağustos","Eylül","Ekim","Kasım","Aralık"]
+
+# linestyle : çizdirilecek plot'un hangi simgelerle oluşturulacağı bilgisi
+# color : grafikte kullanılan değerlerin hangi renkle çizdirileceği
+# linewidth : grafiği gösteren simgelerin büyüklüğü-genişliği
+# label : hangi çizimin hangi veriye ait olduğunu gösterir
+plt.plot(x_eksen,deneme_1,linestyle="-.",color="blue",linewidth=2,label="Deneme-1")
+plt.plot(x_eksen,deneme_2,linestyle='--',color='red',linewidth=2,label="Deneme-2")
+#xticks bilgisinin 0'dan 11'e kadar olan sayılar yerine
+#new_x_ticks listesindeki aylar ile değiştirdik
+plt.xticks(x_eksen,new_x_ticks,rotation=45, ha='right')
+plt.xlabel("Aylar")
+plt.ylabel("Notlar")
+plt.title("2 Öğrencinin 1 yıldaki notları")
+plt.legend()
+plt.show()
+# Bar (Çubuk) grafikleri
+
+deneme_3 = np.random.randint(0,100,30)
+deneme_4 = np.random.randint(0,100,30)
+
+x_eksen = np.arange(deneme_3.shape[0])
+
+plt.bar(x_eksen,deneme_3,color="orange",label="Değer 3")
+plt.bar(x_eksen,deneme_4,color="green",label="Değer 4")
+
+plt.legend()
+plt.show()
+#Ortalama değer üzerinden karşılaştırma yapmaya yarar
+# özellikle de yıllar itibari ile
+
+# Bar (Çubuk) grafikleri
+
+deneme_3 = np.random.randint(0,100,30)
+deneme_4 = np.random.randint(0,100,30)
+
+ort_deneme_3 = np.mean(deneme_3)
+ort_deneme_4 = np.mean(deneme_4)
+
+x_uzunluk = ["Değer 3","Değer 4"]
+
+ort_notlar = [ort_deneme_3, ort_deneme_4]
+
+plt.bar(x_uzunluk,ort_notlar,color=["orange","green"],label=["Değer 3","Değer 4"])
+
+for i in range(len(x_uzunluk)):
+    plt.text(i,ort_notlar[i],f"{ort_notlar[i]:.2f}",ha="center",va="bottom")
+plt.legend()
+plt.show()
+# Pasta grafiği: Yüzdelik dilimleri göstermek için kullanılır
+
+# gösterilecek değerler
+dizi = [25,35,18,15,7]
+
+# o değerlerin hangi isimle gösterileceği
+labels = ['BST','Muhasebe','YBS','Gümrük','İşletme']
+
+# o değerlerin renkleri
+colors  = ["orange","green",'blue','red','pink']
+
+# 5 değer arasında hangisinin pastadan biraz ayrılacağı
+explode = [0,0,0.1,0,0]
+
+#pasta grafiğinin siyah renkle çevresinin ayırt edilmesi
+my_dict  = {'edgecolor':'black'}
+
+#autopct='%1.1f%%' = değerlerin sahip olduğu yüzdeliğin gösterilmesi
+
+plt.pie(dizi,labels=labels,colors=colors,autopct='%1.1f%%',
+        explode=explode,wedgeprops=my_dict)
+plt.show()
